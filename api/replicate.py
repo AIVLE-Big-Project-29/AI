@@ -1,6 +1,6 @@
 import replicate
 
-image = open("./imgs/before.png", "rb")
+image = open("../imgs/before.png", "rb")
 
 input = {
     "prompt": "Leave the image as it is and plant ginkgo trees along the road in the image",

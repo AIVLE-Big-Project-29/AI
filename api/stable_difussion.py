@@ -16,7 +16,7 @@ response = requests.post(
         "Authorization": f"Bearer {api_key}"
     },
     files={
-        "init_image": open("./imgs/before.png", "rb")   # 이부분이 받는 이미지로 바뀌어야하고
+        "init_image": open("../imgs/before.png", "rb")   # 이부분이 받는 이미지로 바뀌어야하고
     },
     data={
         "image_strength": 0.45,         # 이미지 강도 기본 값 0.35

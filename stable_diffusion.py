@@ -16,12 +16,12 @@ response = requests.post(
         "Authorization": f"Bearer {api_key}"
     },
     files={
-        "init_image": open("../imgs/before.png", "rb")   # 이부분이 받는 이미지로 바뀌어야하고
+        "init_image": open("./imgs/before.png", "rb")   # 이부분이 받는 이미지로 바뀌어야하고
     },
     data={
         "image_strength": 0.45,         # 이미지 강도 기본 값 0.35
         "init_image_mode": "IMAGE_STRENGTH",
-        "text_prompts[0][text]": "Transform the urban area shown in the attached image into a lush urban forest. Replace the buildings with a variety of trees, plants, and greenery. Include walking paths, benches, and open spaces for people to relax. Ensure the area is filled with diverse vegetation, creating a natural and serene environment within the city.",
+        "text_prompts[0][text]": "Create a detailed aerial view of an urban forest within a city. The image should depict a modern cityscape with a mix of tall buildings and residential areas, surrounded by lush, green trees and well-maintained parks. Include walking paths, benches, and small water features like ponds or fountains. The urban forest should blend seamlessly with the city's architecture, providing a harmonious balance between nature and urban life. The overall atmosphere should be inviting and serene, showcasing the benefits of integrating green spaces into urban environments.",
         "cfg_scale": 7,     # 프롬프트 텍스트를 얼마나 준수하는지 기본값 7
         "samples": 1,       # 확산 과정에 사용할 샘플러, 생략시 자동으로 적절한 것 선택
         "steps": 50,        # 품질 10 ~ 50
@@ -37,5 +37,5 @@ data = response.json()
 
 # 이부분을 바로 화면에 출력하게 해야하는데
 for i, image in enumerate(data["artifacts"]):
-    with open(f"./imgs/v1_img2img{i}.png", "wb") as f:
-        f.write(base64.b64decode(image["base64"]))
+    with open(f"./imgs/test{i}.png", "wb") as f:
+        print(f.write(base64.b64decode(image["base64"]))) 
